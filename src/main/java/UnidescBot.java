@@ -6,12 +6,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 public class UnidescBot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
-//        System.out.println(update.getMessage().getText());
-// System.out.println(update.getMessage().getFrom().getFirstName()  );
-        SendMessage message = new SendMessage();
-        SendMessage text = new SendMessage();
+//       System.out.println(update.getMessage().getText());
+//       System.out.println(update.getMessage().getFrom().getFirstName()  );
 
+        SendMessage message = new SendMessage();
         String command=update.getMessage().getText();
+
         if(command.equals("/myname")){
             System.out.println(update.getMessage().getFrom().getFirstName());
             message.setText(update.getMessage().getFrom().getFirstName());
@@ -24,9 +24,7 @@ public class UnidescBot extends TelegramLongPollingBot {
             System.out.println(update.getMessage().getFrom().getFirstName() +" "+ update.getMessage().getFrom().getLastName());
             message.setText(update.getMessage().getFrom().getFirstName()+" "+update.getMessage().getFrom().getLastName());
         }
-        if (text.equals("ola")){
-            System.out.println(update.getMessage().getFrom().getLastName());
-        }
+
         message.setChatId(update.getMessage().getChatId());
 
         try {
