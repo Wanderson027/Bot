@@ -47,6 +47,9 @@ public class MainClass {
                 m=update.updateId()+1;
 
                 System.out.println("Recebendo Mensagem: "+update.message().text());
+                if(update.message().text().equals("ne")){
+                    sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"NMeu nome é Bot!!"));
+                }
 
                 //envio de "Escrevendo" antes de enviar a resposta
                 baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
