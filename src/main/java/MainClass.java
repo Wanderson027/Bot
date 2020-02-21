@@ -12,7 +12,8 @@ import com.pengrad.telegrambot.response.GetUpdatesResponse;
 import com.pengrad.telegrambot.response.SendResponse;
 
 public class MainClass {
-    public static void main(String[] args) {
+   
+	public static void main(String[] args) {
         TelegramBot bot = TelegramBotAdapter.build("903755722:AAEqtodZgPhjGPPCjHzgk9ftKxPY3Jo4s2g");
         GetUpdatesResponse updatesResponse;
         SendResponse sendResponse;
@@ -25,8 +26,8 @@ public class MainClass {
             List<Update> updates = updatesResponse.updates();
             EnviarEmail enviarEmail = new EnviarEmail();
 
-           String  emailBot = "teste@hotmail.com";
-           String  senhaBot = "12345678";
+           String  emailBot = "cantorkadu@gmail.com";
+           String  senhaBot = "250995kadukadu";
             
             if(updates != null) {
 	            for(Update update : updates){
