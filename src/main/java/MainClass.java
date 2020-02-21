@@ -11,6 +11,8 @@ import com.pengrad.telegrambot.response.BaseResponse;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
 import com.pengrad.telegrambot.response.SendResponse;
 
+import java.util.List;
+
 public class MainClass {
     public static void main(String[] args) {
         //Cria o objeto bot
@@ -36,6 +38,7 @@ public class MainClass {
             //ista de mensagens
             List<Update> updates = updatesResponse.updates();
 
+<<<<<<< HEAD
             //analise de cada a��o da mensagem
             if(updates != null) {
 	            for(Update update : updates){
@@ -59,6 +62,29 @@ public class MainClass {
 	
 	            }
            }
+=======
+            //analise de cada ação da mensagem
+            for(Update update : updates){
+                //atualizando o offset
+                m=update.updateId()+1;
+
+                System.out.println("Recebendo Mensagem: "+update.message().text());
+
+                //envio de "Escrevendo" antes de enviar a resposta
+                baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
+
+                //verificação de ação de chat foi enviada com sucesso
+                System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
+
+                //envio da mensagem de resposta
+
+                sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Não entendi, por favor repita!"));
+
+                //verificação de mensagem enviada com sucesso
+                System.out.println("Mensagem Enviada?" +sendResponse.isOk());
+
+            }
+>>>>>>> bb93c6fbd950cfc7f7ffb8e1046130d386fbac89
         }
 
 
