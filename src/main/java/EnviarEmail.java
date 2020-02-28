@@ -7,26 +7,29 @@ public class EnviarEmail{
 	private String emailBot;
 	private String senhaBot;
 	
-	public void sendEmail(String emailSend, String emailBot , String senhaBot) {
+	public void sendEmail(String emailSend, String emailBot , String senhaBot, Integer token) {
     	SimpleEmail email = new SimpleEmail();
     	email.setHostName("smtp.gmail.com");
     	email.setSmtpPort(587);
     	email.setAuthenticator(new DefaultAuthenticator(emailBot, senhaBot));
     	email.setSSLOnConnect(true);
-    	
+
     	try {
     		
     		email.setFrom(emailBot);
     		email.setSubject("BOT CAA - UNIDESC");
-    		email.setMsg("Email teste");
+    		email.setMsg("Seu token de confirmação é: " + token);
     		email.addTo(emailSend);
     		email.send();
-    		System.out.println("Email Enviado!");
+    		System.out.println("Email enviado!");
+  
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+
 	
 	public String getEmail() {
 		return email;
@@ -46,6 +49,5 @@ public class EnviarEmail{
 	public void setSenhaBot(String senhaBot) {
 		this.senhaBot = senhaBot;
 	}
-	
-	
+
 }
