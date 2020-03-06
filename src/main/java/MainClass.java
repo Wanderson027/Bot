@@ -40,7 +40,7 @@ public class MainClass {
 	                System.out.println("Recebendo Mensagem: "+update.message().text());
 	                String emailUsuario = update.message().text();
 	                if(update.message().text().contains("@")) {
-	                	sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Um token de confirmação será enviado para seu email"));
+	                	sendResponse = bot.execute(new SendMessage(update.message().chat().id(), "Um token de confirmaï¿½ï¿½o serï¿½ enviado para seu email"));
 	                	buildToken();
 	                	enviarEmail.sendEmail(emailUsuario, emailBot, senhaBot, token);
 	                	if(update.message().text() == token.toString()) {
@@ -50,11 +50,11 @@ public class MainClass {
 	                	}
 	                }
                     if(update.message().text().equals("ne")){
-                        sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Meu nome é Bot!!"));
+                        sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Meu nome Ã© Bot!!"));
                     }
 	                baseResponse = bot.execute(new SendChatAction(update.message().chat().id(), ChatAction.typing.name()));
 	                System.out.println("Resposta de Chat Action Enviada?" + baseResponse.isOk());
-	                sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Não entendi, por favor repita!"));
+	                sendResponse = bot.execute(new SendMessage(update.message().chat().id(),"Nï¿½o entendi, por favor repita!"));
 	                System.out.println("Mensagem Enviada?" +sendResponse.isOk());
 
 	            }
